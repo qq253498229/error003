@@ -1,7 +1,5 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NZ_I18N, zh_CN } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
@@ -16,6 +14,8 @@ import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 import { NgxsFormPluginModule } from '@ngxs/form-plugin';
 import { NgxsModule } from '@ngxs/store';
 import { CustomRouterStateSerializer } from './store/router';
+import { PluginService } from './shared/services/plugin.service';
+import { RouterModule } from '@angular/router';
 
 registerLocaleData(zh);
 
@@ -26,7 +26,11 @@ registerLocaleData(zh);
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
+    /**
+     * 路由在pluginService中初始化
+     * @see PluginService.init
+     * */
+    RouterModule.forRoot([]),
     IconsProviderModule,
     SharedModule,
     NgxsStoragePluginModule.forRoot(),
@@ -40,6 +44,7 @@ registerLocaleData(zh);
   providers: [
     {provide: NZ_I18N, useValue: zh_CN},
     {provide: RouterStateSerializer, useClass: CustomRouterStateSerializer},
+    {provide: APP_INITIALIZER, useFactory: (s: PluginService) => () => s.init(), deps: [PluginService], multi: true},
   ],
   bootstrap: [AppComponent],
 })

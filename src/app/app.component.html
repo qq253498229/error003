@@ -25,10 +25,10 @@
           </li>
         </ul>
       </li>
-      <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
+      <li nz-submenu nzOpen nzTitle="配置" nzIcon="tool">
         <ul>
           <li nz-menu-item nzMatchRouter>
-            <a>Basic Form</a>
+            <a routerLink="/plugin">插件</a>
           </li>
         </ul>
       </li>
@@ -39,8 +39,8 @@
       <div class="app-header">
         <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
             <span class="trigger"
-               nz-icon
-               [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+                  nz-icon
+                  [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
             ></span>
         </span>
       </div>
