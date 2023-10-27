@@ -146,6 +146,113 @@
           }
         }
       }
+    },
+    "plugin-playfab": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/plugin-playfab",
+      "sourceRoot": "projects/plugin-playfab/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "ngx-build-plus:browser",
+          "options": {
+            "outputPath": "dist/plugin-playfab",
+            "index": "projects/plugin-playfab/src/index.html",
+            "main": "projects/plugin-playfab/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/plugin-playfab/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/plugin-playfab/src/favicon.ico",
+              "projects/plugin-playfab/src/assets"
+            ],
+            "styles": [
+              "projects/plugin-playfab/src/styles.scss"
+            ],
+            "scripts": [],
+            "extraWebpackConfig": "projects/plugin-playfab/webpack.config.js",
+            "commonChunk": false
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all",
+              "extraWebpackConfig": "projects/plugin-playfab/webpack.prod.config.js"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "ngx-build-plus:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "plugin-playfab:build:production",
+              "extraWebpackConfig": "projects/plugin-playfab/webpack.prod.config.js"
+            },
+            "development": {
+              "browserTarget": "plugin-playfab:build:development"
+            }
+          },
+          "defaultConfiguration": "development",
+          "options": {
+            "port": 4201,
+            "publicHost": "http://localhost:4201",
+            "extraWebpackConfig": "projects/plugin-playfab/webpack.config.js"
+          }
+        },
+        "extract-i18n": {
+          "builder": "ngx-build-plus:extract-i18n",
+          "options": {
+            "browserTarget": "plugin-playfab:build",
+            "extraWebpackConfig": "projects/plugin-playfab/webpack.config.js"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/plugin-playfab/tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/plugin-playfab/src/favicon.ico",
+              "projects/plugin-playfab/src/assets"
+            ],
+            "styles": [
+              "projects/plugin-playfab/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
     }
   }
 }
