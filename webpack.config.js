@@ -1,6 +1,6 @@
 const {share, withModuleFederationPlugin} = require('@angular-architects/module-federation/webpack');
 
-module.exports = withModuleFederationPlugin({
+let fed = withModuleFederationPlugin({
 
   remotes: {
     // "mfe1": "http://localhost:3000/remoteEntry.js",
@@ -25,3 +25,12 @@ module.exports = withModuleFederationPlugin({
   sharedMappings: [],
 
 });
+
+module.exports = {
+  ...fed,
+  output: {
+    uniqueName: "dashboard",
+    publicPath: "auto",
+    scriptType: 'text/javascript'
+  },
+}
