@@ -65,7 +65,7 @@
             ],
             "scripts": [],
             "extraWebpackConfig": "webpack.config.js",
-            "commonChunk": false
+            "commonChunk": true
           },
           "configurations": {
             "production": {
