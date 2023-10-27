@@ -1,5 +1,5 @@
 <div>
-  <nz-table #basicTable [nzData]="(list$|async)||[]">
+  <nz-table #basicTable [nzData]="(loadedList$|async)||[]">
     <thead>
     <tr>
       <th>路径</th>
@@ -14,8 +14,7 @@
       <td>{{data.desc}}</td>
       <td>{{data.menu ? '有' : '无'}}</td>
       <td>
-        <button nz-button nzType="primary" (click)="load(data)" *ngIf="!data.loaded">加载</button>
-        <button nz-button nzType="primary" nzDanger (click)="unload(data)" *ngIf="data.loaded">卸载</button>
+        <button nz-button nzType="primary" nzDanger (click)="unload(data)">卸载</button>
       </td>
     </tr>
     </tbody>

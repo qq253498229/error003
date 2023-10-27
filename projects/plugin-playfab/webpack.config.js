@@ -5,7 +5,7 @@ module.exports = withModuleFederationPlugin({
   name: 'plugin-playfab',
 
   exposes: {
-    './Component': './projects/plugin-playfab/src/app/app.component.ts',
+    './PlayfabModule': './projects/plugin-playfab/src/app/modules/playfab/playfab.module.ts',
   },
 
   shared: {

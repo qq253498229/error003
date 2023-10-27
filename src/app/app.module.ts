@@ -44,7 +44,12 @@ registerLocaleData(zh);
   providers: [
     {provide: NZ_I18N, useValue: zh_CN},
     {provide: RouterStateSerializer, useClass: CustomRouterStateSerializer},
-    {provide: APP_INITIALIZER, useFactory: (s: PluginService) => () => s.init(), deps: [PluginService], multi: true},
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (s: PluginService) => () => s.init(),
+      deps: [PluginService],
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
 })

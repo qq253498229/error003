@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.json",
+    "start:playfab": "ng serve --proxy-config proxy.json plugin-playfab",
     "build": "ng build",
     "build:plugin-playfab": "ng build plugin-playfab",
     "watch": "ng build --watch --configuration development",

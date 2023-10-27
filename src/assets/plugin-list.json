@@ -1,0 +1,23 @@
+[
+  {
+    "path": "playfab",
+    "desc": "用于集成playfab云服务，保存个人信息",
+    "exposedModule": "./PlayfabModule",
+    "moduleName": "PlayfabModule",
+    "remoteEntry": "/assets/playfab/remoteEntry.js",
+    "remoteEntryDev": "http://localhost:4201/remoteEntry.js",
+    "menu": [
+      {
+        "position": "new",
+        "name": "云同步",
+        "icon": "cloud",
+        "children": [
+          {
+            "path": "/playfab",
+            "name": "Playfab"
+          }
+        ]
+      }
+    ]
+  }
+]

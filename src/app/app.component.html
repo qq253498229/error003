@@ -28,10 +28,36 @@
       <li nz-submenu nzOpen nzTitle="配置" nzIcon="tool">
         <ul>
           <li nz-menu-item nzMatchRouter>
-            <a routerLink="/plugin">插件</a>
+            <a routerLink="/plugin/list">插件</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/plugin/loaded">已加载插件</a>
           </li>
         </ul>
       </li>
+
+      <ng-container *ngFor="let item of (pluginMenu$|async)||[]">
+        <ng-container *ngIf="item.children && item.children.length > 0; else noChildrenMenu">
+          <li nz-submenu nzOpen [nzTitle]="item.name" [nzIcon]="item.icon">
+            <ul>
+              <ng-container *ngFor="let sub of item.children">
+                <li nz-menu-item nzMatchRouter>
+                  <a [routerLink]="sub.path">{{sub.name}}</a>
+                </li>
+              </ng-container>
+            </ul>
+          </li>
+        </ng-container>
+        <ng-template #noChildrenMenu>
+          <li nz-menu-item [routerLink]="item.path" nzMatchRouter>
+            <ng-container *ngIf="item.icon">
+              <span nz-icon [nzType]="item.icon"></span>
+            </ng-container>
+            {{item.name}}
+          </li>
+        </ng-template>
+      </ng-container>
+
     </ul>
   </nz-sider>
   <nz-layout>
