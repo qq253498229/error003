@@ -65,7 +65,12 @@
             ],
             "scripts": [],
             "extraWebpackConfig": "webpack.config.js",
-            "commonChunk": true
+            "commonChunk": true,
+            "allowedCommonJsDependencies": [
+              "object-path",
+              "lodash",
+              "ngx-auto-unsubscribe-decorator"
+            ]
           },
           "configurations": {
             "production": {
