@@ -16,4 +16,15 @@ export namespace PluginAction {
     constructor(public data: any) {
     }
   }
+
+  export class OpenPluginModal {
+    static readonly type = `打开插件对话框`;
+
+    constructor(public data?: any) {
+    }
+  }
+
+  export class SavePluginModal {
+    static readonly type = `插件对话框提交`;
+  }
 }

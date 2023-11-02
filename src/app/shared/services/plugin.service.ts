@@ -4,12 +4,14 @@ import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { loadRemoteModule } from '@angular-architects/module-federation';
+import { NzModalRef } from 'ng-zorro-antd/modal/modal-ref';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PluginService {
   loaded: any;
+  modalRef?: NzModalRef;
 
   constructor(
       private router: Router,
@@ -54,4 +56,11 @@ export class PluginService {
     this.router.resetConfig(routes);
   }
 
+  openModal(modalRef: any) {
+    this.modalRef = modalRef;
+  }
+
+  closeModal() {
+    this.modalRef?.destroy();
+  }
 }

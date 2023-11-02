@@ -16,6 +16,7 @@ import { NgxsModule } from '@ngxs/store';
 import { CustomRouterStateSerializer } from './store/router';
 import { PluginService } from './shared/services/plugin.service';
 import { RouterModule } from '@angular/router';
+import { NzModalModule } from 'ng-zorro-antd/modal';
 
 registerLocaleData(zh);
 
@@ -40,6 +41,7 @@ registerLocaleData(zh);
       selectorOptions: {injectContainerState: false},
       developmentMode: !environment.production,
     }),
+    NzModalModule,
   ],
   providers: [
     {provide: NZ_I18N, useValue: zh_CN},

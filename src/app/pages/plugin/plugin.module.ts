@@ -7,10 +7,15 @@ import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { LoadedComponent } from './loaded/loaded.component';
+import { ModalComponent } from './modal/modal.component';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { CustomComponent } from './custom/custom.component';
 
 const routes: Routes = [
   {path: 'list', component: ListComponent},
   {path: 'loaded', component: LoadedComponent},
+  {path: 'custom', component: CustomComponent},
   {path: '', redirectTo: 'list', pathMatch: 'full'},
 ];
 
@@ -18,6 +23,8 @@ const routes: Routes = [
   declarations: [
     ListComponent,
     LoadedComponent,
+    ModalComponent,
+    CustomComponent,
   ],
   imports: [
     CommonModule,
@@ -26,6 +33,9 @@ const routes: Routes = [
     NzTableModule,
     NzDividerModule,
     NzButtonModule,
+
+    NzFormModule,
+    NzInputModule,
   ],
 })
 export class PluginModule {
