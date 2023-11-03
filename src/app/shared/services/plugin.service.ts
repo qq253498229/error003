@@ -5,6 +5,7 @@ import { tap } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { loadRemoteModule } from '@angular-architects/module-federation';
 import { NzModalRef } from 'ng-zorro-antd/modal/modal-ref';
+import { NotFoundComponent } from '../../pages/not-found/not-found.component';
 
 @Injectable({
   providedIn: 'root',
@@ -34,7 +35,7 @@ export class PluginService {
   initRouter(loadedPlugins: any) {
     let pluginRouterList = loadedPlugins.map((s: any) => {
       return {
-        path: s.path,
+        path: `plugin/${s.path}`,
         loadChildren: () => loadRemoteModule({
           type: 'module',
           remoteEntry: environment.production ? s['remoteEntry'] : s['remoteEntryDev'],
@@ -51,6 +52,7 @@ export class PluginService {
       },
       {path: 'plugin', loadChildren: () => import('src/app/pages/plugin/plugin.module').then(m => m.PluginModule)},
       ...pluginRouterList,
+      {path: '**', component: NotFoundComponent},
     ];
 
     this.router.resetConfig(routes);

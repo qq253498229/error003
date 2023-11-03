@@ -13,7 +13,7 @@
         "icon": "cloud",
         "children": [
           {
-            "path": "/playfab",
+            "path": "/plugin/playfab",
             "name": "Playfab"
           }
         ]

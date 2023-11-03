@@ -17,12 +17,14 @@ import { CustomRouterStateSerializer } from './store/router';
 import { PluginService } from './shared/services/plugin.service';
 import { RouterModule } from '@angular/router';
 import { NzModalModule } from 'ng-zorro-antd/modal';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 registerLocaleData(zh);
 
 @NgModule({
   declarations: [
     AppComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
