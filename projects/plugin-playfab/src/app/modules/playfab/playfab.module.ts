@@ -25,7 +25,7 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes),
-    NgxsModule.forRoot([
+    NgxsModule.forFeature([
       PlayfabState,
     ]),
     NgxsFormPluginModule,
