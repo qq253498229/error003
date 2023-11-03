@@ -1,1 +1,30 @@
-<p>playfab works!</p>
+<p>欢迎使用PlayFab云存储!</p>
+
+<div nz-row>
+  <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()"
+        ngxsForm="playfab.form">
+    <nz-form-item>
+      <nz-form-control nzErrorTip="请输入您的用户名!">
+        <nz-input-group nzPrefixIcon="user">
+          <input type="text" nz-input formControlName="username" placeholder="请输入用户名"/>
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control nzErrorTip="请输入您的密码!">
+        <nz-input-group nzPrefixIcon="lock">
+          <input type="password" nz-input formControlName="password" placeholder="请输入密码"/>
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <!--    <nz-form-item>-->
+    <!--      <nz-form-control nzErrorTip="请再次输入密码!">-->
+    <!--        <nz-input-group nzPrefixIcon="lock">-->
+    <!--          <input type="password" nz-input formControlName="repeatPassword" placeholder="请再次输入密码"/>-->
+    <!--        </nz-input-group>-->
+    <!--      </nz-form-control>-->
+    <!--    </nz-form-item>-->
+    <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">登陆</button>
+    或者去<a>注册!</a>
+  </form>
+</div>

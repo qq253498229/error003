@@ -10,7 +10,6 @@ const THIRD_MODULES: any[] = [
   FormsModule,
   ReactiveFormsModule,
   HttpClientModule,
-  NgxsFormPluginModule,
   NzLayoutModule,
   NzMenuModule,
 ];
